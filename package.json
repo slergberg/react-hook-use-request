@@ -1,0 +1,109 @@
+{
+  "name": "@slergberg/react-hook-use-http-request",
+  "version": "0.1.0",
+  "description": "A very simple axios-based HTTP request hook for React",
+  "keywords": [
+    "axios",
+    "hooks",
+    "http",
+    "react",
+    "reactjs"
+  ],
+  "license": "MIT",
+  "author": "Rodrigo Scomação do Nascimento <rodrigo.sc.na@gmail.com> (https://github.com/rodrigoscna)",
+  "homepage": "https://github.com/slergberg/react-hook-use-http-request",
+  "repository": "github:slergberg/react-hook-use-http-request",
+  "bugs": "https://github.com/slergberg/react-hook-use-http-request/issues",
+  "main": "./lib/index.js",
+  "unpkg": "dist/react-hook-use-http-request.js",
+  "module": "es/index.js",
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-test-renderer": "^16.8.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.24.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.1.2"
+  },
+  "scripts": {
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "babel src --out-dir es",
+    "build:umd": "cross-env NODE_ENV=development rollup -c -o dist/react-hook-use-http-request.js",
+    "build:umd:min": "cross-env NODE_ENV=production rollup -c -o dist/react-hook-use-http-request.min.js",
+    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "clean": "rimraf lib dist es coverage",
+    "lint": "eslint src test",
+    "prepare": "npm run clean",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "env": {
+      "jest": true
+    },
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "import/prefer-default-export": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node ./node_modules/pretty-quick/bin/pretty-quick --staged"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>test/jest.setup.js"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
