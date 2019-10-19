@@ -15,6 +15,12 @@ npm install --save react-hook-use-http-request
 This assumes that you’re using npm package manager with a module bundler like
 Webpack or Browserify to consume CommonJS modules.
 
+## Contributing
+
+Feel free to contribute with this small library. For more information, take a
+look at our
+[contributing guide](https://github.com/slergberg/react-context-store/blob/master/CONTRIBUTING.md).
+
 ## License
 
 [MIT](https://github.com/slergberg/react-hook-use-http-request/blob/master/LICENSE.md)
