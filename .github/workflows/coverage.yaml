@@ -1,0 +1,25 @@
+name: coverage
+
+on: [push, pull_request]
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+      - name: Install npm dependencies
+        run: npm ci
+        env:
+          CI: true
+      - name: Run tests
+        run: npm test -- --coverage
+        env:
+          CI: true
+      - name: Provide coverage report
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: ./coverage/lcov.info
