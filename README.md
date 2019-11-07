@@ -9,7 +9,7 @@ A very simple axios-based HTTP request hook for React.
 ## Installation
 
 ```JavaScript
-npm install --save react-hook-use-http-request
+npm install --save @slergberg/react-hook-use-http-request
 ```
 
 This assumes that you’re using npm package manager with a module bundler like
