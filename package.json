@@ -1,6 +1,6 @@
 {
   "name": "@slergberg/react-hook-use-http-request",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A very simple axios-based HTTP request hook for React",
   "keywords": [
     "axios",
