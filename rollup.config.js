@@ -1,17 +1,16 @@
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
-import json from 'rollup-plugin-json'
 import nodeResolve from 'rollup-plugin-node-resolve'
+import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-replace'
+import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 
-import pkg from './package.json'
+import packageDefinition from './package.json'
 
-const env = process.env.NODE_ENV
+const { NODE_ENV } = process.env
 
 const config = {
   input: 'src/index.js',
-  external: Object.keys(pkg.peerDependencies || {}),
+  external: Object.keys(packageDefinition.peerDependencies || {}),
   output: {
     format: 'umd',
     name: 'ReactHookUseHttpRequest',
@@ -26,14 +25,13 @@ const config = {
       runtimeHelpers: true,
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify(env),
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
     }),
     commonjs(),
-    json(),
   ],
 }
 
-if (env === 'production') {
+if (NODE_ENV === 'production') {
   config.plugins.push(
     terser({
       compress: {
