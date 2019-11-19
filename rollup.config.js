@@ -10,7 +10,7 @@ import packageDefinition from './package.json'
 const { NODE_ENV } = process.env
 
 const config = {
-  input: 'src/index.ts',
+  input: 'src/index.js',
   external: Object.keys(packageDefinition.peerDependencies || {}),
   output: {
     format: 'umd',
@@ -25,9 +25,7 @@ const config = {
       exclude: '**/node_modules/**',
       runtimeHelpers: true,
     }),
-    json({
-      exclude: '**/node_modules/**',
-    }),
+    json(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
     }),
