@@ -18,8 +18,14 @@ jobs:
         run: npm test -- --coverage
         env:
           CI: true
-      - name: Provide coverage report
+      - name: Start coverage report
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
+          parallel: true
           path-to-lcov: ./coverage/lcov.info
+      - name: Finish coverage report
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
