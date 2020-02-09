@@ -4,6 +4,7 @@ A very simple axios-based HTTP request hook for React.
 
 [![build](https://github.com/slergberg/react-hook-use-http-request/workflows/build/badge.svg)](https://github.com/slergberg/react-hook-use-http-request/)
 [![coverage](https://coveralls.io/repos/github/slergberg/react-hook-use-http-request/badge.svg?branch=master)](https://coveralls.io/github/slergberg/react-hook-use-http-request?branch=master)
+[![dependabot](https://api.dependabot.com/badges/status?host=github&repo=slergberg/react-hook-use-http-request)](https://dependabot.com)
 [![license](https://img.shields.io/github/license/slergberg/react-hook-use-http-request)](https://github.com/slergberg/react-hook-use-http-request/blob/master/LICENSE.md)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md)
