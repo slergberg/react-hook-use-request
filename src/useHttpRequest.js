@@ -24,13 +24,13 @@ const reducerActions = {
   }),
 }
 
-const reducer = (state, action) => {
+function reducer(state, action) {
   const reducerAction = reducerActions[action.type]
 
   return reducerAction(state, action.payload)
 }
 
-const useHttpRequest = (url, options = {}) => {
+export default function useHttpRequest(url, options = {}) {
   const {
     autoExecute = true,
     baseUrl = '',
@@ -54,7 +54,7 @@ const useHttpRequest = (url, options = {}) => {
   const executeHttpRequestRef = useRef()
 
   useEffect(() => {
-    executeHttpRequestRef.current = (optionsOverride = {}) => {
+    function executeHttpRequest(optionsOverride = {}) {
       dispatch({ type: 'loading' })
 
       const {
@@ -110,6 +110,8 @@ const useHttpRequest = (url, options = {}) => {
         })
     }
 
+    executeHttpRequestRef.current = executeHttpRequest
+
     return cancelHttpRequestRef.current
   }, [
     baseUrl,
@@ -155,5 +157,3 @@ const useHttpRequest = (url, options = {}) => {
     response,
   }
 }
-
-export default useHttpRequest

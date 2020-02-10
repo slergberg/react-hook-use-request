@@ -1,3 +1,1 @@
-import useHttpRequest from './useHttpRequest'
-
-export { useHttpRequest }
+export { default as useHttpRequest } from './useHttpRequest'
