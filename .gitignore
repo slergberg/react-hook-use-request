@@ -9,6 +9,7 @@
 es
 dist
 lib
+stats
 
 ### Node.js ###
 *.log
